@@ -98,16 +98,16 @@ void GridMap::initMap(ros::NodeHandle &nh)
   md_.proj_points_.resize(640 * 480 / mp_.skip_pixel_ / mp_.skip_pixel_);
   md_.proj_points_cnt = 0;
 
-  md_.cam2body_ << 0.0, 0.0, 1.0, 0.0,
-      -1.0, 0.0, 0.0, 0.0,
-      0.0, -1.0, 0.0, 0.0,
-      0.0, 0.0, 0.0, 1.0;
+  md_.cam2body_ << 1.0, 0.0, 0.0, 0.0,
+                  0.0, 1.0, 0.0, 0.0,
+                  0.0, 0.0, 1.0, 0.0,
+                  0.0, 0.0, 0.0, 1.0;
 
   /* init callback */
 
   depth_sub_.reset(new message_filters::Subscriber<sensor_msgs::Image>(node_, "grid_map/depth", 50));
   extrinsic_sub_ = node_.subscribe<nav_msgs::Odometry>(
-      "/vins_estimator/extrinsic", 10, &GridMap::extrinsicCallback, this); //sub
+      "/vins_estimator/extrinsic", 1, &GridMap::extrinsicCallback, this); //sub
 
   if (mp_.pose_type_ == POSE_STAMPED)
   {
@@ -129,9 +129,9 @@ void GridMap::initMap(ros::NodeHandle &nh)
 
   // use odometry and point cloud
   indep_cloud_sub_ =
-      node_.subscribe<sensor_msgs::PointCloud2>("grid_map/cloud", 10, &GridMap::cloudCallback, this);
+      node_.subscribe<sensor_msgs::PointCloud2>("grid_map/cloud", 1, &GridMap::cloudCallback, this);
   indep_odom_sub_ =
-      node_.subscribe<nav_msgs::Odometry>("grid_map/odom", 10, &GridMap::odomCallback, this);
+      node_.subscribe<nav_msgs::Odometry>("grid_map/odom", 1, &GridMap::odomCallback, this);
 
   occ_timer_ = node_.createTimer(ros::Duration(0.05), &GridMap::updateOccupancyCallback, this);
   vis_timer_ = node_.createTimer(ros::Duration(0.11), &GridMap::visCallback, this);

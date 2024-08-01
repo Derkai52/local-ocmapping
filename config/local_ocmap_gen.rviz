@@ -76,7 +76,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.10000000149011612
       Style: Boxes
-      Topic: /local_ocmap_gen_node_front/grid_map/occupancy_inflate
+      Topic: /local_ocmap_gen_node_front/grid_map/occupancy
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -273,7 +273,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.900567531585693
+      Distance: 6.176029205322266
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -281,17 +281,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.0026715993881226
-        Y: 0.00023558363318443298
-        Z: -0.11571574956178665
+        X: 0.5287242531776428
+        Y: 0.6941871047019958
+        Z: 0.34171590209007263
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4497963786125183
+      Pitch: 0.2897964119911194
       Target Frame: <Fixed Frame>
-      Yaw: 3.620387315750122
+      Yaw: 3.7703864574432373
     Saved: ~
 Window Geometry:
   Displays:
