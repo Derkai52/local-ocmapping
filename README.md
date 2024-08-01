@@ -13,3 +13,4 @@ roslaunch vins swarm_d435_no_rviz.launch
 # 开启建图算法
 roslaunch local_ocmap_gen grid_map.launch
 ```
+![](docs/ocmap.png)
